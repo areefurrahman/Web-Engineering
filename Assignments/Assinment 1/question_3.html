@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #e8e8e8;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        table {
+            background-color: #ffffff;
+            border-collapse: collapse;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            box-sizing: border-box;
+        }
+
+        button,
+        input[type="reset"]{
+            padding: 8px 16px;
+            margin-right: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            
+        }
+
+        input[type="reset"] {
+            background-color: #f44336;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+        
+        .image-preview {
+            border: 1px solid #ccc;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .file-input-container {
+            display: flex;
+        }
+        
+        .file-input {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 8px;
+        }
+        
+        .file-button {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 8px 20px;
+            margin-left: 10px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 15px; font-family:'Segoe UI'; ">Update Product</h1>
+    <form>
+        <table>
+        <tr>
+            <td>Produt Name: </td>
+            <td><input type="text" id="name" placeholder="Enter Product Name" required></td>
+        </tr>
+        
+        <tr>
+            <td>Produt Code: </td>
+            <td><input type="text" id="name" placeholder="Bar Code"></td>
+        </tr>
+        <tr>
+            <td>Quantity: </td>
+            <td><input type="number" id="name"></td>
+        </tr>
+
+        <tr>
+            <td>Category: </td>
+            <td><select name="Category" >
+                <option value="">Select Category</option>
+                <option value="Category 1">Category 1</option>
+                <option value="Category 2">Category 2</option>
+                <option value="Category 3">Category 3</option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td><label for="">Brand: </label> </td>
+            <td><select name="Category" >
+                <option value="">Select Brand</option>
+                <option value="Category 1">Brand 1</option>
+                <option value="Category 2">Brand 2</option>
+                <option value="Category 3">Brand 3</option>
+            </select></td>
+        </tr>
+        
+        <!-- Replaced description with product image section -->
+        <tr>
+            <td>Product Image: </td>
+            <td>
+                <div class="image-preview">Product Image</div>
+                <div class="file-input-container">
+                    <div class="file-input"></div>
+                    <button type="button" class="file-button">File</button>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                <button type="button">Update</button>
+                <input type="reset" value="Clear">
+            </td>
+        </tr>
+        
+    </table>
+    </form>
+</body>
+</html>

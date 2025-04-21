@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #e8e8e8;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        table {
+            background-color: #ffffff;
+            border-collapse: collapse;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            box-sizing: border-box;
+        }
+
+        button,
+        input[type="reset"]{
+            padding: 8px 16px;
+            margin-right: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            
+        }
+
+     
+
+        input[type="reset"] {
+            background-color: #f44336;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 15px; font-family:'Segoe UI'; ">Add New Produt</h1>
+    <form>
+        <table>
+        <tr>
+            <td>Produt Name: </td>
+            <td><input type="text" id="name" placeholder="Enter Product Name" required></td>
+        </tr>
+        
+        <tr>
+            <td>Produt Code: </td>
+            <td><input type="text" id="name" placeholder="Bar Code"></td>
+        </tr>
+        <tr>
+            <td>Quantity: </td>
+            <td><input type="number" id="name"></td>
+        </tr>
+
+        <tr>
+            <td>Category: </td>
+            <td><select name="Category" >
+                <option value="">Select a category</option>
+                <option value="Category 1">Category 1</option>
+                <option value="Category 2">Category 2</option>
+                <option value="Category 3">Category 3</option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td><label for="">Brand: </label> </td>
+            <td><select name="Category" >
+                <option value="">Select a Brand</option>
+                <option value="Category 1">Brand 1</option>
+                <option value="Category 2">Brand 2</option>
+                <option value="Category 3">Brand 3</option>
+            </select></td>
+
+
+        </tr>
+        <tr>
+            <td><label for="pimage">Product Image: </label></td>
+            <td><input type="file"></td>
+        </tr>
+        <tr>
+            <td>
+                <label for="desc112"> Product: </label>
+            </td>
+            <td>
+                <textarea name="Description" id="desc112"></textarea>
+            </td>
+        </tr>
+
+    </tr>
+    <tr>
+        <td>
+            
+        </td>
+        <td>
+            <button>save</button>
+            <input type="reset" value="Clear">
+        </td>
+    </tr>
+        
+    </table>
+    </form>
+</body>
+</html>

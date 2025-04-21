@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product List</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-spacing: 0 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .product-img {
+            width: 50px;
+            height: auto;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            margin: 2px;
+            background-color: #eee;
+            border: 1px solid #999;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Style for the row boundaries */
+        td {
+            border-top: 1px solid #3e1010;
+            border-bottom: 1px solid #3e1010;
+        }
+
+        td:first-child {
+            border-left: 1px solid #3e1010;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        td:last-child {
+            border-right: 1px solid #3e1010;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Product List</h2>
+
+
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Operations</th>
+        </tr>
+
+        <tr class="product-box">
+            <td><img src="mobile 1 .webp" class="product-img"><br>iPhone 13s</td>
+            <td>17</td>
+            <td>250,000</td>
+            <td>Mobiles</td>
+            <td>Apple</td>
+            <td>
+                <button class="btn">Details</button>
+                <button class="btn">Edit</button>
+            </td>
+        </tr>
+
+        <tr class="product-box">
+            <td><img src="mobile 2.webp" class="product-img"><br>Samsung Note 10</td>
+            <td>6</td>
+            <td>593,000</td>
+            <td>Mobiles</td>
+            <td>Samsung</td>
+            <td>
+                <button class="btn">Details</button>
+                <button class="btn">Edit</button>
+            </td>
+        </tr>
+
+        <tr class="product-box">
+            <td><img src="mobile 3.webp" class="product-img"><br>Samsung Note 20s</td>
+            <td>3</td>
+            <td>613,000</td>
+            <td>Mobiles</td>
+            <td>Nokia</td>
+            <td>
+                <button class="btn">Details</button>
+                <button class="btn">Edit</button>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

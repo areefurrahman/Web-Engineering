@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+    <style>
+        table {
+            
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th colspan="6" style="color: red;">Data Table (Header)</th>
+            </tr>
+        </thead>
+        <tr>
+            <td rowspan="3">DATA 1</td>
+            <td style="color: orange;">101</td>
+            <td rowspan="2" colspan="2" style="color: green;"> 
+                Un-Order List
+                <ul>
+                    <li>item 1</li>
+                    <li>item 2</li>
+                    <li>item 3</li>
+                </ul>
+            </td>
+            <td style="color: green;">Heading 1</td>
+            <td style="color: green;">Heading 2</td>
+        </tr>
+
+        <tr>
+            <td style="color: orange;">201</td>
+            <td style="color: green;">Heading 3</td>
+            <td style="color: green;">Heading 4</td>
+
+        </tr>
+        <tr>
+            <td style="color: orange;">301</td>
+            <td>302</td>
+            <td colspan="3"><a style="font-size: 9px;" href="https://horizon.ucp.edu.pk/web/login"><mark>UCP Portal>> </mark> https://horizon.ucp.edu.pk/web/login</a></td>
+
+
+        </tr>
+
+
+        <tr>
+            <td rowspan="4">DATA 2</td>
+            <td style="color: orange;">D11</td>
+            <td >D12</td>
+            <td colspan="2" rowspan="3" style="color: red;">
+                Orderd List
+                <ol>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ol>
+            </td>
+            <td>UCP LOGO</td>
+
+        </tr>
+        <tr>
+            <td rowspan="2" style="color: orange;">D21</td>
+            <td rowspan="2">D22</td>
+            <td rowspan="2"><img src="ucplogo.png" alt="logo" height="80px"></td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+            <td style="color: orange;">D31</td>
+            <td>D32</td>
+            <td colspan="4"><a style="font-size: 9px;" href="https://ucp.edu.pk"> <mark>UCP Website>></mark>https://ucp.edu.pk</a></td>
+        </tr>
+        <tfoot>
+            <tr style="color: green; text-align: center;">
+                <td colspan="6">Data Table (Footer)</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
