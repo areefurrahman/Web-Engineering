@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert JSON to Object and Object to JSON</title>
+</head>
+<body>
+    <script>
+        let Student = {
+            name: "Areef",
+            age: "20",
+        }
+
+        let josnSring = JSON.stringify(Student);
+        console.log("Converted to JSON String: ", josnSring);
+
+
+        let newObject = JSON.parse(josnSring);
+        console.log("converted to Object: ", newObject);
+
+        console.log(newObject.age);
+
+    </script>
+</body>
+</html>
