@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day and Night Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        body.night {
+            background-color: #2F4F4F;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        body.night h1 {
+            color: white;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        body.night .container {
+            background-color: #444;
+        }
+
+        #dayNightImage {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            border-radius: 8px;
+            border: 3px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        body.night #dayNightImage {
+            border-color: #666;
+        }
+
+        .toggle-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .toggle-button:hover {
+            background-color: #45a049;
+        }
+
+        body.night .toggle-button {
+            background-color: #FF6B6B;
+        }
+
+        body.night .toggle-button:hover {
+            background-color: #FF5252;
+        }
+
+        .status {
+            font-size: 20px;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        body.night .status {
+            color: white;
+        }
+
+        .emoji {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Day and Night Toggle</h1>
+    
+    <div class="container">
+        <img id="dayNightImage" src="day.jpg" alt="Day scene">
+        
+        <br>
+        
+        <button id="toggleBtn" class="toggle-button">
+            Switch to Night
+        </button>
+        
+        <div class="status">
+            <span class="emoji" id="emoji">☀️</span>
+            <span id="timeText">Good Morning! It's daytime</span>
+        </div>
+    </div>
+
+    <script>
+        let isDay = true;
+        
+        const image = document.getElementById('dayNightImage');
+        const button = document.getElementById('toggleBtn');
+        const body = document.body;
+        const emoji = document.getElementById('emoji');
+        const timeText = document.getElementById('timeText');
+        
+        // Image sources
+        const dayImage = 'day.jpg';
+        const nightImage = 'night.jpg';
+        
+        function toggleDayNight() {
+            if (isDay) {
+                image.src = nightImage;
+                button.textContent = 'Switch to Day';
+                body.classList.add('night');
+                emoji.textContent = '🌙';
+                timeText.textContent = 'Good Evening! It\'s nighttime';
+                isDay = false;
+            } else {
+                image.src = dayImage;
+                button.textContent = 'Switch to Night';
+                body.classList.remove('night');
+                emoji.textContent = '☀️';
+                timeText.textContent = 'Good Morning! It\'s daytime';
+                isDay = true;
+            }
+        }
+        
+        button.addEventListener('click', toggleDayNight);
+        
+        image.addEventListener('click', toggleDayNight);
+    </script>
+</body>
+</html>

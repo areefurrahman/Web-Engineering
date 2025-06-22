@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive List Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        #itemList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #itemList li {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border: 2px solid transparent;
+        }
+
+        #itemList li:hover {
+            background-color: #45a049;
+            transform: translateX(5px);
+        }
+
+        #itemList li.clicked {
+            background-color: #FF6B6B;
+            color: white;
+            border-color: #FF5252;
+        }
+
+        #itemList li.clicked:hover {
+            background-color: #FF5252;
+        }
+
+        .reset-button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .reset-button:hover {
+            background-color: #1976D2;
+        }
+
+        .instructions {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .click-icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive List Items</h1>
+        <p class="instructions">Click on any item below to mark it as clicked!</p>
+        
+        <ul id="itemList">
+            <li>Task 1 - Complete project</li>
+            <li>Task 2 - Review documents</li>
+            <li>Task 3 - Send emails</li>
+            <li>Task 4 - Attend meeting</li>
+            <li>Task 5 - Update website</li>
+        </ul>
+
+        <button class="reset-button" id="resetBtn">Reset All Items</button>
+    </div>
+
+    <script>
+        let items = document.querySelectorAll("#itemList li");
+        let resetButton = document.getElementById("resetBtn");
+        
+        let originalContent = [];
+        items.forEach(function(item, index) {
+            originalContent[index] = item.innerHTML;
+        });
+
+        items.forEach(function(item, index) {
+            item.addEventListener("click", function() {
+                if (!this.classList.contains('clicked')) {
+                    this.innerHTML = "<span class='click-icon'>✅</span><b>Completed!</b>";
+                    this.classList.add('clicked');
+                } else {
+                    this.innerHTML = originalContent[index];
+                    this.classList.remove('clicked');
+                }
+            });
+        });
+
+        resetButton.addEventListener("click", function() {
+            items.forEach(function(item, index) {
+                item.innerHTML = originalContent[index];
+                item.classList.remove('clicked');
+            });
+        });
+    </script>
+</body>
+</html>

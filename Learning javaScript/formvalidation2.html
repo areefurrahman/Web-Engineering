@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="username" />
+    <span id="usernameError" style="color:red;"></span>
+
+    <script>
+
+        let username = document.getElementById("username");
+        let usernameError = document.getElementById("usernameError");
+        let timeout;
+
+        username.addEventListener("input", () => {
+            clearTimeout(timeout); // Cancel old timer
+            timeout = setTimeout(() => {
+                validateUsername(username.value);
+            }, 500); // Wait for 500ms
+        });
+
+        function validateUsername(value) {
+            if (value.length < 4) { usernameError.textContent = "Username must be at least 4 characters."; } else {
+                usernameError.textContent = "Thank you";
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

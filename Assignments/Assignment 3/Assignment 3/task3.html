@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Element Creator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        select:focus, input:focus, textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .add-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .add-btn:hover {
+            background-color: #45a049;
+        }
+
+        .clear-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .clear-btn:hover {
+            background-color: #da190b;
+        }
+
+        .output-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 200px;
+        }
+
+        .output-header {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        #output {
+            line-height: 1.6;
+        }
+
+        #output h1, #output h2, #output h3, #output h4, #output h5, #output h6 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        #output p {
+            color: #555;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            padding: 40px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1> Dynamic Element Creator</h1>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="headingLevel">Heading Level:</label>
+                    <select id="headingLevel">
+                        <option value="h1">H1 - Main Title</option>
+                        <option value="h2" selected>H2 - Section Title</option>
+                        <option value="h3">H3 - Subsection</option>
+                        <option value="h4">H4 - Small Heading</option>
+                        <option value="h5">H5 - Minor Heading</option>
+                        <option value="h6">H6 - Smallest Heading</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="headingText">Heading Text:</label>
+                <input type="text" id="headingText" placeholder="Enter your heading text here..." maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="paraText">Paragraph Text:</label>
+                <textarea id="paraText" placeholder="Enter your paragraph content here..." maxlength="500"></textarea>
+            </div>
+
+            <div class="btn-group">
+                <button class="add-btn" id="addBtn">➕ Add Content</button>
+                <button class="clear-btn" id="clearBtn">🗑️ Clear All</button>
+            </div>
+        </div>
+
+        <div class="output-section">
+            <h2 class="output-header">📄 Generated Content</h2>
+            <div id="output">
+                <div class="empty-state">
+                    Your content will appear here after you add elements above.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get form elements
+        const headingLevelSelect = document.getElementById("headingLevel");
+        const headingTextInput = document.getElementById("headingText");
+        const paraTextInput = document.getElementById("paraText");
+        const addButton = document.getElementById("addBtn");
+        const clearButton = document.getElementById("clearBtn");
+        const outputDiv = document.getElementById("output");
+
+        function addElement() {
+            const headingLevel = headingLevelSelect.value;
+            const headingText = headingTextInput.value.trim();
+            const paraText = paraTextInput.value.trim();
+
+            if (!headingText) {
+                alert("Please enter heading text!");
+                headingTextInput.focus();
+                return;
+            }
+
+            if (!paraText) {
+                alert("Please enter paragraph text!");
+                paraTextInput.focus();
+                return;
+            }
+
+            if (outputDiv.querySelector('.empty-state')) {
+                outputDiv.innerHTML = '';
+            }
+
+            const heading = document.createElement(headingLevel);
+            heading.textContent = headingText;
+
+            const para = document.createElement("p");
+            para.textContent = paraText;
+
+            outputDiv.appendChild(heading);
+            outputDiv.appendChild(para);
+
+            headingTextInput.value = '';
+            paraTextInput.value = '';
+            headingTextInput.focus();
+        }
+
+        function clearAll() {
+            if (outputDiv.innerHTML.trim() === '' || outputDiv.querySelector('.empty-state')) {
+                return;
+            }
+
+            if (confirm("Are you sure you want to clear all content?")) {
+                outputDiv.innerHTML = '<div class="empty-state">Your content will appear here after you add elements above.</div>';
+            }
+        }
+
+        addButton.addEventListener("click", addElement);
+        clearButton.addEventListener("click", clearAll);
+
+        headingTextInput.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                paraTextInput.focus();
+            }
+        });
+
+        paraTextInput.addEventListener("keypress", function(e) {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                addElement();
+            }
+        });
+
+        window.addEventListener("load", function() {
+            headingTextInput.focus();
+        });
+    </script>
+</body>
+</html>
