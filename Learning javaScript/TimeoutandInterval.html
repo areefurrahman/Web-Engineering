@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Click 'Start' Button to Change the backdground color loop </h1>
+    <button id="start">
+        Start
+    </button>
+    <button id="stop">
+        Stop
+    </button>
+
+    <script>
+        const generateColorCode = function () {
+
+            let colorCode = "#";
+            for (let index = 0; index < 6; index++) {
+
+                colorCode += Math.floor(Math.random() * 10);
+            }
+            return colorCode;
+
+        }
+
+
+
+        let intervalID = null;
+
+        function changeBackgrounColor() {
+
+            document.body.style.backgroundColor = generateColorCode();
+
+        }
+
+        function startColorChangeInterval() {
+            intervalID = setInterval(changeBackgrounColor, 900);
+
+        }
+
+        function stopColorChangeInterval(){
+            clearInterval(intervalID);
+
+            intervalID = null;
+
+        }
+
+        document.getElementById('start').addEventListener('click', function () {
+            startColorChangeInterval();
+        })
+
+
+        document.getElementById('stop').addEventListener('click', function () {
+
+            stopColorChangeInterval();
+        })
+
+
+
+    </script>
+</body>
+
+</html>
