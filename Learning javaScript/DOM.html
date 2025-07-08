@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic List Renderer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input[type="text"] {
+      padding: 8px;
+      width: 200px;
+    }
+    button {
+      padding: 8px 12px;
+    }
+    ul {
+      margin-top: 20px;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Dynamic List Renderer</h2>
+  <input type="text" id="itemInput" placeholder="Enter item" />
+  <button onclick="addItem()">Add</button>
+
+  <ul id="itemList"></ul>
+
+  <script>
+    // Array to store items
+    let items = [];
+
+    // Function to add item to the list
+    function addItem() {
+      const input = document.getElementById('itemInput');
+      const newItem = input.value.trim();
+
+      if (newItem !== "") {
+        items.push(newItem); // Add to array
+        input.value = ""; // Clear input
+        renderList(); // Refresh list display
+      }
+    }
+
+    // Function to render list dynamically
+    function renderList() {
+      const list = document.getElementById('itemList');
+      list.innerHTML = ""; // Clear existing list
+
+      // Loop through array to create list items
+      for (let i = 0; i < items.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = items[i];
+        list.appendChild(li);
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+<!-- practice Question 02: -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="fetch.json">
+</head>
+<body>
+   <h2>👥 User List from Local JSON</h2>
+  <div id="output">Loading...</div>
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  fetch('data.json') // 🔁 Local JSON file
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch data.json");
+      }
+      return response.json();
+    })
+    .then(data => {
+      const output = document.getElementById("output");
+      output.innerHTML = ""; // Clear "Loading..."
+
+      // Loop through each object in the JSON array
+      data.forEach(person => {
+        const div = document.createElement("div");
+        // div.classList.add("card");  // for css class
+        div.innerHTML = `<strong>Name:</strong> ${person.name}<br>
+                         <strong>Age:</strong> ${person.age}<br>
+                         <strong>City:</strong> ${person.city}`;
+        output.appendChild(div);
+      });
+    })
+    .catch(error => {
+      document.getElementById("output").innerText = "Error loading JSON: " + error;
+    });
+});
+
+  </script>
+</body>
+</html>

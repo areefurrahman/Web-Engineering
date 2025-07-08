@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventing Default Behavior</title>
+</head>
+
+<body>
+    <form id="loginForm">
+        <input type="text" placeholder="Enter name" />
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        let form = document.getElementById("loginForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Stop form from reloading the page
+            alert("Form submitted, but page didn't reload.");
+        });
+    </script>
+
+</body>
+
+</html>

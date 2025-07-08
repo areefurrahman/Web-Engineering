@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopping Event Propagation</title>
+</head>
+
+<body>
+    <div id="outer" style="background: lightgray; padding: 20px;">
+        <button id="inner">Click Me</button>
+    </div>
+
+    <script>
+        // Event listener on outer div
+        document.getElementById("outer").addEventListener("click", function () {
+            alert("Outer Div Clicked");
+        });
+
+        // Event listener on inner button
+        document.getElementById("inner").addEventListener("click", function (event) {
+            event.stopPropagation();  // Stop event from bubbling up
+            alert("Button Clicked");
+        });
+    </script>
+
+</body>
+
+</html>

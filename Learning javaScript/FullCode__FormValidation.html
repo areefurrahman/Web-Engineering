@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+      width: 300px;
+      display: block;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📝 User Registration</h2>
+  <form id="regForm">
+    <label>Name:</label>
+    <input type="text" id="name" />
+    <div class="error" id="nameError"></div>
+
+    <label>Email:</label>
+    <input type="text" id="email" />
+    <div class="error" id="emailError"></div>
+
+    <label>Password:</label>
+    <input type="password" id="password" />
+    <div class="error" id="passwordError"></div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <div id="resultMsg" class="success"></div>
+
+  <script>
+    const form = document.getElementById("regForm");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // stop form from submitting
+
+      // Get values
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      // Reset errors
+      document.getElementById("nameError").innerText = "";
+      document.getElementById("emailError").innerText = "";
+      document.getElementById("passwordError").innerText = "";
+      document.getElementById("resultMsg").innerText = "";
+
+      let valid = true;
+
+      // Validate name
+      if (name.length < 3) {
+        document.getElementById("nameError").innerText = "Name must be at least 3 characters";
+        valid = false;
+      }
+
+      // Validate email
+      if (!email.includes("@") || !email.includes(".")) {
+        document.getElementById("emailError").innerText = "Invalid email address";
+        valid = false;
+      }
+
+      // Validate password
+      if (password.length < 6) {
+        document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
+        valid = false;
+      }
+
+      if (valid) {
+        document.getElementById("resultMsg").innerText = "✅ Registered Successfully!";
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
